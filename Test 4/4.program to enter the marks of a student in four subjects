@@ -1,0 +1,36 @@
+#include <iostream>
+
+int main() {
+    int subject1, subject2, subject3, subject4;
+    float total, aggregate;
+
+    std::cout << "Enter the marks of the student in four subjects:\n";
+    std::cout << "Subject 1: ";
+    std::cin >> subject1;
+    std::cout << "Subject 2: ";
+    std::cin >> subject2;
+    std::cout << "Subject 3: ";
+    std::cin >> subject3;
+    std::cout << "Subject 4: ";
+    std::cin >> subject4;
+
+    total = subject1 + subject2 + subject3 + subject4;
+    aggregate = (total / 4.0) * 100;
+
+    std::cout << "\nTotal marks: " << total << std::endl;
+    std::cout << "Aggregate marks: " << aggregate << "%" << std::endl;
+
+    if (aggregate > 75) {
+        std::cout << "Grade: Distinction" << std::endl;
+    } else if (aggregate >= 60 && aggregate < 75) {
+        std::cout << "Grade: First Division" << std::endl;
+    } else if (aggregate >= 50 && aggregate < 60) {
+        std::cout << "Grade: Second Division" << std::endl;
+    } else if (aggregate >= 40 && aggregate < 50) {
+        std::cout << "Grade: Third Division" << std::endl;
+    } else {
+        std::cout << "Grade: Fail" << std::endl;
+    }
+
+    return 0;
+}
