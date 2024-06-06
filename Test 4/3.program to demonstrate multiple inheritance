@@ -1,0 +1,51 @@
+#include <iostream>
+
+
+class Shape {
+public:
+    virtual void display() {
+        std::cout << "This is a shape." << std::endl;
+    }
+};
+
+
+class Rectangle {
+protected:
+    int length;
+    int breadth;
+
+public:
+    Rectangle(int l, int b) : length(l), breadth(b) {}
+
+    int area() {
+        return length * breadth;
+    }
+};
+
+
+class Cuboid : public Rectangle, public Shape {
+private:
+    int height;
+
+public:
+    Cuboid(int l, int b, int h) : Rectangle(l, b), height(h) {}
+
+    int volume() {
+        return length * breadth * height;
+    }
+
+    void display() {
+        std::cout << "This is a cuboid with length " << length << ", breadth " << breadth << ", and height " << height << "." << std::endl;
+    }
+};
+
+int main() {
+    Cuboid cuboid(5, 3, 2);
+
+    std::cout << "Area of the cuboid: " << cuboid.area() << std::endl;
+    std::cout << "Volume of the cuboid: " << cuboid.volume() << std::endl;
+
+    cuboid.display();
+
+    return 0;
+}
