@@ -1,0 +1,139 @@
+#include <iostream>
+#include <stack>
+#include <string>
+
+using namespace std;
+
+class Book {
+private:
+    int bookId;
+    string bookName;
+
+public:
+    Book(int id, string name) {
+        bookId = id;
+        bookName = name;
+    }
+
+    int getBookId() {
+        return bookId;
+    }
+
+    string getBookName() {
+        return bookName;
+    }
+};
+
+class User {
+private:
+    int regNo;
+    string userName;
+
+public:
+    User(int no, string name) {
+        regNo = no;
+        userName = name;
+    }
+
+    int getRegNo() {
+        return regNo;
+    }
+
+    string getUserName() {
+        return userName;
+    }
+};
+
+class Library {
+private:
+    stack<Book> bookStack;
+    stack<User> userStack;
+
+public:
+    void addBook(int id, string name) {
+        Book book(id, name);
+        bookStack.push(book);
+    }
+
+    void addUser(int no, string name) {
+        User user(no, name);
+        userStack.push(user);
+    }
+
+    bool checkBookAvailability(int id) {
+        while (!bookStack.empty()) {
+            Book book = bookStack.top();
+            bookStack.pop();
+            if (book.getBookId() == id) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    void distributeBook(int id) {
+        if (checkBookAvailability(id)) {
+            cout << "Book available. Distributing..." << endl;
+        } else {
+            cout << "Book not available." << endl;
+        }
+    }
+};
+
+int main() {
+    Library library;
+
+    int choice;
+    while (true) {
+        cout << "1. Add Book" << endl;
+        cout << "2. Add User" << endl;
+        cout << "3. Check Book Availability" << endl;
+        cout << "4. Distribute Book" << endl;
+        cout << "5. Exit" << endl;
+        cout << "Enter your choice: ";
+        cin >> choice;
+
+        switch (choice) {
+            case 1:
+                int id;
+                string name;
+                cout << "Enter Book ID: ";
+                cin >> id;
+                cout << "Enter Book Name: ";
+                cin >> name;
+                library.addBook(id, name);
+                break;
+            case 2:
+                int no;
+                string nameUser;
+                cout << "Enter User Registration Number: ";
+                cin >> no;
+                cout << "Enter User Name: ";
+                cin >> nameUser;
+                library.addUser(no, nameUser);
+                break;
+            case 3:
+                int idCheck;
+                cout << "Enter Book ID to check availability: ";
+                cin >> idCheck;
+                if (library.checkBookAvailability(idCheck)) {
+                    cout << "Book available." << endl;
+                } else {
+                    cout << "Book not available." << endl;
+                }
+                break;
+            case 4:
+                int idDistribute;
+                cout << "Enter Book ID to distribute: ";
+                cin >> idDistribute;
+                library.distributeBook(idDistribute);
+                break;
+            case 5:
+                return 0;
+            default:
+                cout << "Invalid choice. Please choose again." << endl;
+        }
+    }
+
+    return 0;
+}
