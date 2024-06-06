@@ -1,0 +1,115 @@
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+class Employee {
+protected:
+    string empName;
+    int empId;
+    string address;
+    string mailId;
+    long long mobileNo;
+
+public:
+    void setEmployeeDetails(string name, int id, string addr, string mail, long long mob) {
+        empName = name;
+        empId = id;
+        address = addr;
+        mailId = mail;
+        mobileNo = mob;
+    }
+
+    void displayEmployeeDetails() {
+        cout << "Employee Name: " << empName << endl;
+        cout << "Employee ID: " << empId << endl;
+        cout << "Address: " << address << endl;
+        cout << "Email ID: " << mailId << endl;
+        cout << "Mobile Number: " << mobileNo << endl;
+    }
+};
+
+class Programmer : public Employee {
+private:
+    double basicPay;
+
+public:
+    void setBasicPay(double pay) {
+        basicPay = pay;
+    }
+
+    void displayProgrammerDetails() {
+        displayEmployeeDetails();
+        cout << "Basic Pay: " << basicPay << endl;
+    }
+};
+
+class AssistantProfessor : public Employee {
+private:
+    double basicPay;
+
+public:
+    void setBasicPay(double pay) {
+        basicPay = pay;
+    }
+
+    void displayAssistantProfessorDetails() {
+        displayEmployeeDetails();
+        cout << "Basic Pay: " << basicPay << endl;
+    }
+};
+
+class AssociateProfessor : public Employee {
+private:
+    double basicPay;
+
+public:
+    void setBasicPay(double pay) {
+        basicPay = pay;
+    }
+
+    void displayAssociateProfessorDetails() {
+        displayEmployeeDetails();
+        cout << "Basic Pay: " << basicPay << endl;
+    }
+};
+
+class Professor : public Employee {
+private:
+    double basicPay;
+
+public:
+    void setBasicPay(double pay) {
+        basicPay = pay;
+    }
+
+    void displayProfessorDetails() {
+        displayEmployeeDetails();
+        cout << "Basic Pay: " << basicPay << endl;
+    }
+};
+
+int main() {
+    Programmer programmer;
+    AssistantProfessor assistantProfessor;
+    AssociateProfessor associateProfessor;
+    Professor professor;
+
+    programmer.setEmployeeDetails("John Doe", 123, "123 Main St", "john.doe@example.com", 1234567890);
+    programmer.setBasicPay(50000.0);
+    programmer.displayProgrammerDetails();
+
+    assistantProfessor.setEmployeeDetails("Jane Smith", 456, "456 Main St", "jane.smith@example.com", 9876543210);
+    assistantProfessor.setBasicPay(60000.0);
+    assistantProfessor.displayAssistantProfessorDetails();
+
+    associateProfessor.setEmployeeDetails("Bob Johnson", 789, "789 Main St", "bob.johnson@example.com", 1112223333);
+    associateProfessor.setBasicPay(70000.0);
+    associateProfessor.displayAssociateProfessorDetails();
+
+    professor.setEmployeeDetails("Alice Brown", 901, "901 Main St", "alice.brown@example.com", 2223334444);
+    professor.setBasicPay(80000.0);
+    professor.displayProfessorDetails();
+
+    return 0;
+}
