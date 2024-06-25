@@ -1,0 +1,12 @@
+#include <iostream>
+
+int main() {
+    int num;
+    std::cout << "Enter an integer: ";
+    std::cin >> num;
+
+    std::string result = (num % 3 == 0) ? "divisible" : "not divisible";
+    std::cout << num << " is " << result << " by 3." << std::endl;
+
+    return 0;
+}
