@@ -1,0 +1,27 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    // Declare variables to store the three numbers
+    int num1, num2, num3;
+
+    // Prompt the user to enter the first number
+    cout << "Enter the first number: ";
+    cin >> num1;
+
+    // Prompt the user to enter the second number
+    cout << "Enter the second number: ";
+    cin >> num2;
+
+    // Prompt the user to enter the third number
+    cout << "Enter the third number: ";
+    cin >> num3;
+
+    // Determine the largest number using the ternary conditional operator
+    int largest = (num1 >= num2) ? ((num1 >= num3) ? num1 : num3) : ((num2 >= num3) ? num2 : num3);
+
+    // Display the largest number
+    cout << "The largest number is: " << largest << endl;
+
+    return 0;
+}
