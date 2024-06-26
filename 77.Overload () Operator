@@ -1,0 +1,19 @@
+#include <iostream>
+
+class Adder {
+public:
+    int operator()(int a, int b) {
+        return a + b;
+    }
+
+    double operator()(double a, double b) {
+        return a + b;
+    }
+};
+
+int main() {
+    Adder adder;
+    std::cout << "2 + 3 = " << adder(2, 3) << std::endl;
+    std::cout << "2.5 + 3.5 = " << adder(2.5, 3.5) << std::endl;
+    return 0;
+}
