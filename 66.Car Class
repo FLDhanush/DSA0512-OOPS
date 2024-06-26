@@ -1,0 +1,37 @@
+#include <iostream>
+#include <string>
+
+class Car {
+private:
+    std::string make;
+    std::string model;
+    int year;
+
+public:
+    // Constructor
+    Car(std::string m, std::string mo, int y) {
+        make = m;
+        model = mo;
+        year = y;
+        std::cout << "Car created: " << make << " " << model << " " << year << std::endl;
+    }
+
+    // Destructor
+    ~Car() {
+        std::cout << "Car destroyed." << std::endl;
+    }
+
+    // Member function to display car information
+    void displayCarInfo() {
+        std::cout << "Make: " << make << std::endl;
+        std::cout << "Model: " << model << std::endl;
+        std::cout << "Year: " << year << std::endl;
+    }
+};
+
+int main() {
+    Car car1("Toyota", "Corolla", 2015);
+    car1.displayCarInfo();
+
+    return 0;
+}
