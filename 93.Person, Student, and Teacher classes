@@ -1,0 +1,64 @@
+#include <iostream>
+#include <string>
+
+class Person {
+protected:
+    std::string name;
+    int age;
+    char gender;
+public:
+    Person(std::string n, int a, char g) : name(n), age(a), gender(g) {}
+    virtual void display() = 0;
+};
+
+class Student : public Person {
+private:
+    int rollNumber;
+    std::string className;
+public:
+    Student(std::string n, int a, char g, int rn, std::string cn)
+        : Person(n, a, g), rollNumber(rn), className(cn) {}
+    void setRollNumber(int rn) {
+        rollNumber = rn;
+    }
+    int getRollNumber() {
+        return rollNumber;
+    }
+    void setClassName(std::string cn) {
+        className = cn;
+    }
+    std::string getClassName() {
+        return className;
+    }
+    void display() override {
+        std::cout << "Name: " << name << std::endl;
+        std::cout << "Age: " << age << std::endl;
+        std::cout << "Gender: " << gender << std::endl;
+        std::cout << "Roll Number: " << rollNumber << std::endl;
+        std::cout << "Class: " << className << std::endl;
+    }
+};
+
+class Teacher : public Person {
+private:
+    std::string subject;
+    double salary;
+public:
+    Teacher(std::string n, int a, char g, std::string sub, double s)
+        : Person(n, a, g), subject(sub), salary(s) {}
+    void setSubject(std::string sub) {
+        subject = sub;
+    }
+    std::string getSubject() {
+        return subject;
+    }
+    void setSalary(double s) {
+        salary = s;
+    }
+    double getSalary() {
+        return salary;
+    }
+    void display() override {
+        std::cout << "Name: " << name << std::endl;
+        std::cout << "Age: " << age << std::endl;
+        std::cout << "Gender: "
