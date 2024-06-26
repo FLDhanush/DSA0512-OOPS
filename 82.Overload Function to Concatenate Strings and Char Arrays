@@ -1,0 +1,25 @@
+#include <iostream>
+#include <cstring>
+
+class Concat {
+public:
+    std::string concat(std::string a, std::string b) {
+        return a + b;
+    }
+
+    char* concat(char a[], char b[]) {
+        char* result = new char[strlen(a) + strlen(b) + 1];
+        strcpy(result, a);
+        strcat(result, b);
+        return result;
+    }
+};
+
+int main() {
+    Concat concat;
+    std::cout << "Concat of 'Hello' and 'World': " << concat.concat("Hello", "World") << std::endl;
+    char a[] = "Hello";
+    char b[] = "World";
+    std::cout << "Concat of 'Hello' and 'World' char arrays: " << concat.concat(a, b) << std::endl;
+    return 0;
+}
