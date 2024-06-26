@@ -1,0 +1,30 @@
+#include <iostream>
+
+class SumCalculator {
+public:
+    int sum(int a[], int b[], int size) {
+        int result = 0;
+        for (int i = 0; i < size; i++)
+            result += a[i] + b[i];
+        return result;
+    }
+
+    double sum(double a[][2], double b[][2], int size) {
+        double result = 0;
+        for (int i = 0; i < size; i++)
+            for (int j = 0; j < 2; j++)
+                result += a[i][j] + b[i][j];
+        return result;
+    }
+};
+
+int main() {
+    SumCalculator calculator;
+    int a[] = {1, 2, 3};
+    int b[] = {4, 5, 6};
+    std::cout << "Sum of two integer arrays: " << calculator.sum(a, b, 3) << std::endl;
+    double c[][2] = {{1.0, 2.0}, {3.0, 4.0}};
+    double d[][2] = {{5.0, 6.0}, {7.0, 8.0}};
+    std::cout << "Sum of two 2x2 matrices: " << calculator.sum(c, d, 2) << std::endl;
+    return 0;
+}
