@@ -1,0 +1,33 @@
+#include <iostream>
+
+class Printer {
+public:
+    void print(int a[], int size) {
+        for (int i = 0; i < size; i++)
+            std::cout << a[i] << " ";
+        std::cout << std::endl;
+    }
+
+    void print(double a[], int size) {
+        for (int i = 0; i < size; i++)
+            std::cout << a[i] << " ";
+        std::cout << std::endl;
+    }
+
+    void print(char a[], int size) {
+        for (int i = 0; i < size; i++)
+            std::cout << a[i] << " ";
+        std::cout << std::endl;
+    }
+};
+
+int main() {
+    Printer printer;
+    int a[] = {1, 2, 3};
+    double b[] = {1.0, 2.0, 3.0};
+    char c[] = {'a', 'b', 'c'};
+    printer.print(a, 3);
+    printer.print(b, 3);
+    printer.print(c, 3);
+    return 0;
+}
