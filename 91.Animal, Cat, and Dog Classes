@@ -1,0 +1,25 @@
+#include <iostream>
+using namespace std;
+
+class Animal {
+protected:
+    string name;
+    string species;
+    int age;
+
+public:
+    Animal(string n, string s, int a) : name(n), species(s), age(a) {}
+
+    virtual void display() const = 0;
+};
+
+class Cat : public Animal {
+private:
+    string color;
+    string breed;
+
+public:
+    Cat(string n, string s, int a, string c, string b) : Animal(n, s, a), color(c), breed(b) {}
+
+    void display() const override {
+        cout << "Cat - Name: " << name << ", Species: " << species << ", Age: " << age
