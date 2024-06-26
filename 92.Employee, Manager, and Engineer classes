@@ -1,0 +1,77 @@
+#include <iostream>
+#include <string>
+
+class Employee {
+protected:
+    std::string name;
+    std::string d;
+    double salary;
+public:
+    Employee(std::string n, std::string d, double s) : name(n), d(d), salary(s) {}
+    virtual void display() = 0;
+};
+
+class Manager : public Employee {
+private:
+    std::string department;
+    double bonus;
+public:
+    Manager(std::string n, std::string d, double s, std::string dep, double b)
+        : Employee(n, d, s), department(dep), bonus(b) {}
+    void setDepartment(std::string dep) {
+        department = dep;
+    }
+    std::string getDepartment() {
+        return department;
+    }
+    void setBonus(double b) {
+        bonus = b;
+    }
+    double getBonus() {
+        return bonus;
+    }
+    void display() override {
+        std::cout << "Name: " << name << std::endl;
+        std::cout << "D: " << d << std::endl;
+        std::cout << "Salary: " << salary << std::endl;
+        std::cout << "Department: " << department << std::endl;
+        std::cout << "Bonus: " << bonus << std::endl;
+    }
+};
+
+class Engineer : public Employee {
+private:
+    std::string specialty;
+    int hours;
+public:
+    Engineer(std::string n, std::string d, double s, std::string spec, int h)
+        : Employee(n, d, s), specialty(spec), hours(h) {}
+    void setSpecialty(std::string spec) {
+        specialty = spec;
+    }
+    std::string getSpecialty() {
+        return specialty;
+    }
+    void setHours(int h) {
+        hours = h;
+    }
+    int getHours() {
+        return hours;
+    }
+    void display() override {
+        std::cout << "Name: " << name << std::endl;
+        std::cout << "D: " << d << std::endl;
+        std::cout << "Salary: " << salary << std::endl;
+        std::cout << "Specialty: " << specialty << std::endl;
+        std::cout << "Hours: " << hours << std::endl;
+    }
+};
+
+int main() {
+    Manager manager("John", "IT", 50000, "Software Development", 10000);
+    Engineer engineer("Jane", "R&D", 60000, "Mechanical Engineering", 40);
+    manager.display();
+    std::cout << std::endl;
+    engineer.display();
+    return 0;
+}
