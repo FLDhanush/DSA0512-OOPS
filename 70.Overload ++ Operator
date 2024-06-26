@@ -1,0 +1,25 @@
+#include <iostream>
+
+class Counter {
+private:
+    int count;
+
+public:
+    Counter(int c = 0) : count(c) {}
+
+    Counter operator++() {
+        Counter temp = *this;
+        count++;
+        return temp;
+    }
+
+    int getCount() { return count; }
+};
+
+int main() {
+    Counter c1(5);
+    std::cout << "Initial count: " << c1.getCount() << std::endl;
+    Counter c2 = ++c1;
+    std::cout << "After increment: " << c2.getCount() << std::endl;
+    return 0;
+}
