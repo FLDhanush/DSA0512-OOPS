@@ -1,0 +1,36 @@
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+bool isNarcissistic(int num) {
+    int sum = 0;
+    int temp = num;
+    int n = 0;
+    
+    while (temp > 0) {
+        temp /= 10;
+        n++;
+    }
+
+    temp = num;
+    while (temp > 0) {
+        int digit = temp % 10;
+        sum += pow(digit, n);
+        temp /= 10;
+    }
+
+    return sum == num;
+}
+
+int main() {
+    int n;
+    cout << "Enter a number: ";
+    cin >> n;
+
+    if (isNarcissistic(n))
+        cout << n << " is a Narcissistic number." << endl;
+    else
+        cout << n << " is not a Narcissistic number." << endl;
+
+    return 0;
+}
