@@ -1,0 +1,25 @@
+#include <iostream>
+#include <string>
+
+class Student {
+private:
+    std::string name;
+    int age;
+    double gpa;
+
+public:
+    // Constructor
+    Student(std::string n, int a, double g) {
+        name = n;
+        age = a;
+        gpa = g;
+        std::cout << "Student created: " << name << std::endl;
+    }
+
+    // Destructor
+    ~Student() {
+        std::cout << "Student destroyed." << std::endl;
+    }
+
+    // Member function to display student information
+    void displayStudentInfo
