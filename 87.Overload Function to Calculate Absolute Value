@@ -1,0 +1,19 @@
+#include <iostream>
+
+class AbsoluteValueCalculator {
+public:
+    int abs(int n) {
+        return (n < 0)? -n : n;
+    }
+
+    double abs(double n) {
+        return (n < 0)? -n : n;
+    }
+};
+
+int main() {
+    AbsoluteValueCalculator calculator;
+    std::cout << "Absolute value of -5: " << calculator.abs(-5) << std::endl;
+    std::cout << "Absolute value of -5.5: " << calculator.abs(-5.5) << std::endl;
+    return 0;
+}
