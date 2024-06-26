@@ -1,0 +1,45 @@
+#include <iostream>
+using namespace std;
+
+class Vehicle {
+protected:
+    string make;
+    string model;
+    int year;
+
+public:
+    Vehicle(string m, string mo, int y) : make(m), model(mo), year(y) {}
+
+    virtual void display() const = 0;
+};
+
+class Car : public Vehicle {
+private:
+    int seatingCapacity;
+    string fuelType;
+
+public:
+    Car(string m, string mo, int y, int seatCap, string fuel) : Vehicle(m, mo, y), seatingCapacity(seatCap), fuelType(fuel) {}
+
+    void display() const override {
+        cout << "Car - Make: " << make << ", Model: " << model << ", Year: " << year
+             << ", Seating Capacity: " << seatingCapacity << ", Fuel Type: " << fuelType << endl;
+    }
+};
+
+class Truck : public Vehicle {
+private:
+    double payloadCapacity;
+    double towingCapacity;
+
+public:
+    Truck(string m, string mo, int y, double payload, double towing) : Vehicle(m, mo, y), payloadCapacity(payload), towingCapacity(towing) {}
+
+    void display() const override {
+        cout << "Truck - Make: " << make << ", Model: " << model << ", Year: " << year
+             << ", Payload Capacity: " << payloadCapacity << " tons, Towing Capacity: " << towingCapacity << " tons" << endl;
+    }
+};
+
+int main() {
+    Car car("Toyota", "Camry", 2020, 5,
