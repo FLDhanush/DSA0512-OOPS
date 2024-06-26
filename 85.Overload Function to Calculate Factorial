@@ -1,0 +1,25 @@
+#include <iostream>
+
+class FactorialCalculator {
+public:
+    int factorial(int n) {
+        int result = 1;
+        for (int i = 1; i <= n; i++)
+            result *= i;
+        return result;
+    }
+
+    double factorial(double n) {
+        double result = 1;
+        for (double i = 1; i <= n; i++)
+            result *= i;
+        return result;
+    }
+};
+
+int main() {
+    FactorialCalculator calculator;
+    std::cout << "Factorial of 5: " << calculator.factorial(5) << std::endl;
+    std::cout << "Factorial of 5.5: " << calculator.factorial(5.5) << std::endl;
+    return 0;
+}
