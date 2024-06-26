@@ -1,0 +1,35 @@
+#include <iostream>
+using namespace std;
+
+int factorial(int num) {
+    int fact = 1;
+    for (int i = 1; i <= num; ++i) {
+        fact *= i;
+    }
+    return fact;
+}
+
+bool isStrong(int num) {
+    int originalNum = num;
+    int sum = 0;
+    
+    while (num > 0) {
+        int digit = num % 10;
+        sum += factorial(digit);
+        num /= 10;
+    }
+    return sum == originalNum;
+}
+
+int main() {
+    int n;
+    cout << "Enter a number: ";
+    cin >> n;
+
+    if (isStrong(n))
+        cout << n << " is a Strong number." << endl;
+    else
+        cout << n << " is not a Strong number." << endl;
+
+    return 0;
+}
